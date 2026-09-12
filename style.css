@@ -1,0 +1,1293 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: #fff7f8;
+    color: #4a3037;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+
+    --pink: #d96b88;
+    --dark-pink: #a94461;
+    --light-pink: #fff0f3;
+    --cream: #fffafa;
+    --text: #4a3037;
+    --muted: #8e737b;
+
+}
+
+
+/* =========================================
+   LOADER
+========================================= */
+
+.loader {
+
+    position: fixed;
+    inset: 0;
+
+    background: #fff7f8;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    z-index: 9999;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+
+}
+
+.loader.hide {
+
+    opacity: 0;
+    visibility: hidden;
+
+}
+
+.loader-heart {
+
+    font-size: 70px;
+
+    color: var(--pink);
+
+    animation:
+        heartbeat 1.3s infinite ease-in-out;
+
+}
+
+.loader p {
+
+    margin-top: 20px;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color: var(--muted);
+
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+
+}
+
+
+/* =========================================
+   FLOATING ELEMENTS
+========================================= */
+
+.floating-elements {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 5;
+
+}
+
+.floating-elements span {
+
+    position: absolute;
+
+    color: rgba(217, 107, 136, 0.25);
+
+    font-size: 25px;
+
+    animation:
+        floatAround 12s linear infinite;
+
+}
+
+.floating-elements span:nth-child(1) {
+    left: 10%;
+    top: 20%;
+    animation-delay: 0s;
+}
+
+.floating-elements span:nth-child(2) {
+    left: 80%;
+    top: 15%;
+    animation-delay: 2s;
+}
+
+.floating-elements span:nth-child(3) {
+    left: 70%;
+    top: 70%;
+    animation-delay: 4s;
+}
+
+.floating-elements span:nth-child(4) {
+    left: 20%;
+    top: 75%;
+    animation-delay: 6s;
+}
+
+.floating-elements span:nth-child(5) {
+    left: 45%;
+    top: 40%;
+    animation-delay: 8s;
+}
+
+@keyframes floatAround {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-30px)
+            rotate(20deg);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    padding: 80px 20px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(255, 210, 220, 0.45),
+            transparent 45%
+        ),
+
+        #fff7f8;
+
+}
+
+.hero-content {
+
+    max-width: 850px;
+
+}
+
+.small-title {
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: var(--muted);
+
+    margin-bottom: 25px;
+
+}
+
+.hero h1 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(80px, 14vw, 190px);
+
+    font-weight: 500;
+
+    line-height: 0.75;
+
+    color: #61343f;
+
+}
+
+.hero h1 span {
+
+    display: block;
+
+    color: var(--pink);
+
+    font-style: italic;
+
+}
+
+.hero-name {
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 48px;
+
+    color: var(--dark-pink);
+
+    margin-top: 35px;
+
+}
+
+.hero-description {
+
+    max-width: 500px;
+
+    margin: 25px auto 35px;
+
+    color: var(--muted);
+
+    line-height: 1.8;
+
+    font-size: 15px;
+
+}
+
+.scroll-button {
+
+    display: inline-block;
+
+    text-decoration: none;
+
+    color: white;
+
+    background: var(--pink);
+
+    padding: 15px 28px;
+
+    border-radius: 100px;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+}
+
+.scroll-button:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 30px
+        rgba(217, 107, 136, .25);
+
+}
+
+.scroll-indicator {
+
+    position: absolute;
+
+    bottom: 35px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    color: #a98c94;
+
+}
+
+.scroll-indicator span {
+
+    width: 1px;
+
+    height: 35px;
+
+    background: var(--pink);
+
+    display: block;
+
+    margin: 0 auto 10px;
+
+}
+
+
+/* =========================================
+   COMMON
+========================================= */
+
+section {
+
+    position: relative;
+
+}
+
+.eyebrow {
+
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+
+    font-size: 10px;
+
+    color: var(--pink);
+
+    margin-bottom: 20px;
+
+}
+
+.section-heading {
+
+    text-align: center;
+
+}
+
+.section-heading h2 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-weight: 500;
+
+    font-size:
+        clamp(60px, 8vw, 105px);
+
+    line-height: .85;
+
+}
+
+.section-heading h2 span {
+
+    color: var(--pink);
+
+    font-style: italic;
+
+}
+
+
+/* =========================================
+   LETTER
+========================================= */
+
+.letter-section {
+
+    min-height: 100vh;
+
+    padding: 140px 20px;
+
+    background: #fdecef;
+
+}
+
+.letter-card {
+
+    max-width: 650px;
+
+    margin: 80px auto 0;
+
+    background: #fffdfd;
+
+    padding: 45px;
+
+    box-shadow:
+        0 30px 80px
+        rgba(100, 40, 55, .10);
+
+    transform:
+        rotate(-1deg);
+
+    position: relative;
+
+}
+
+.letter-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 12px;
+
+    border: 1px solid
+        rgba(217, 107, 136, .2);
+
+    pointer-events: none;
+
+}
+
+.letter-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: var(--pink);
+
+    font-size: 12px;
+
+    margin-bottom: 35px;
+
+}
+
+.letter-content {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+.letter-content p {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 20px;
+
+    line-height: 1.7;
+
+    margin-bottom: 20px;
+
+    color: #60444c;
+
+}
+
+.letter-content .handwritten {
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 38px;
+
+    color: var(--pink);
+
+}
+
+.letter-ending {
+
+    color: var(--pink) !important;
+
+    font-weight: 600;
+
+}
+
+.signature {
+
+    text-align: right;
+
+    font-size: 15px !important;
+
+    font-style: italic;
+
+}
+
+
+/* =========================================
+   MEMORIES
+========================================= */
+
+.memory-section {
+
+    padding: 150px 20px;
+
+    background: #fff8f9;
+
+}
+
+.memory-intro {
+
+    text-align: center;
+
+    margin-bottom: 120px;
+
+}
+
+.memory-intro h2 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(60px, 8vw, 100px);
+
+    line-height: .85;
+
+    font-weight: 500;
+
+}
+
+.memory-intro h2 span {
+
+    color: var(--pink);
+
+    font-style: italic;
+
+}
+
+.memory-container {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+}
+
+.memory-card {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 60px;
+
+    align-items: center;
+
+    margin-bottom: 160px;
+
+}
+
+.memory-right {
+
+    direction: rtl;
+
+}
+
+.memory-right .memory-text {
+
+    direction: ltr;
+
+}
+
+.photo-placeholder {
+
+    height: 450px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #f7dce3,
+            #fff
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    position: relative;
+
+    box-shadow:
+        0 25px 60px
+        rgba(100, 40, 55, .10);
+
+}
+
+.photo-placeholder p {
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size: 35px;
+
+    color: var(--pink);
+
+}
+
+.photo-number {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 20px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: var(--muted);
+
+}
+
+.memory-text h3 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 48px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    margin-bottom: 25px;
+
+}
+
+.memory-text p {
+
+    color: var(--muted);
+
+    line-height: 1.8;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================
+   QUALITIES
+========================================= */
+
+.qualities-section {
+
+    padding: 150px 20px;
+
+    background: #fdecef;
+
+}
+
+.qualities-grid {
+
+    max-width: 1000px;
+
+    margin: 100px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+
+}
+
+.quality-card {
+
+    background: #fffafa;
+
+    padding: 45px;
+
+    min-height: 300px;
+
+    position: relative;
+
+    transition:
+        transform .4s ease;
+
+}
+
+.quality-card:hover {
+
+    transform:
+        translateY(-10px);
+
+}
+
+.quality-number {
+
+    position: absolute;
+
+    top: 25px;
+
+    right: 25px;
+
+    color: #c7a8b0;
+
+    font-size: 10px;
+
+}
+
+.quality-icon {
+
+    font-size: 35px;
+
+    color: var(--pink);
+
+    margin-bottom: 25px;
+
+}
+
+.quality-card h3 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 38px;
+
+    font-weight: 500;
+
+    margin-bottom: 15px;
+
+}
+
+.quality-card p {
+
+    color: var(--muted);
+
+    line-height: 1.7;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================
+   QUOTE
+========================================= */
+
+.quote-section {
+
+    min-height: 80vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 25px;
+
+    background: #fff7f8;
+
+}
+
+.quote-content {
+
+    max-width: 900px;
+
+}
+
+.quote-symbol {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size: 100px;
+
+    color: var(--pink);
+
+}
+
+.quote-content h2 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(45px, 6vw, 80px);
+
+    font-weight: 500;
+
+    line-height: 1;
+
+}
+
+.quote-content h2 span {
+
+    display: block;
+
+    color: var(--pink);
+
+    font-style: italic;
+
+}
+
+.quote-content p {
+
+    margin-top: 35px;
+
+    color: var(--muted);
+
+}
+
+
+/* =========================================
+   WISH
+========================================= */
+
+.wish-section {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+    background:
+
+        radial-gradient(
+            circle,
+            #ffe2e9,
+            #fff6f8
+        );
+
+}
+
+.wish-content h2 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(60px, 9vw, 110px);
+
+    font-weight: 500;
+
+    line-height: .85;
+
+}
+
+.wish-content h2 span {
+
+    color: var(--pink);
+
+    font-style: italic;
+
+}
+
+.cake-area {
+
+    height: 250px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+.cake {
+
+    position: relative;
+
+    width: 200px;
+
+}
+
+.cake-bottom {
+
+    height: 60px;
+
+    background: #e98da5;
+
+    border-radius:
+        10px 10px 20px 20px;
+
+}
+
+.cake-middle {
+
+    width: 170px;
+
+    height: 55px;
+
+    background: #f3aec0;
+
+    margin: auto;
+
+    border-radius: 10px;
+
+}
+
+.cake-top {
+
+    width: 140px;
+
+    height: 50px;
+
+    background: #ffd5df;
+
+    margin: auto;
+
+    border-radius:
+        10px 10px 5px 5px;
+
+}
+
+.candle {
+
+    position: absolute;
+
+    top: -50px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 10px;
+
+    height: 45px;
+
+    background: #fff;
+
+    border-radius: 5px;
+
+}
+
+.flame {
+
+    position: absolute;
+
+    top: -30px;
+
+    left: -7px;
+
+    font-size: 22px;
+
+    animation:
+        flicker .7s infinite alternate;
+
+}
+
+@keyframes flicker {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform:
+            scale(1.15)
+            rotate(3deg);
+    }
+
+}
+
+.wish-button {
+
+    border: none;
+
+    background: var(--pink);
+
+    color: white;
+
+    padding: 16px 35px;
+
+    border-radius: 100px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+}
+
+.wish-button:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 15px 30px
+        rgba(217, 107, 136, .3);
+
+}
+
+.wish-message {
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+
+    margin-top: 30px;
+
+    color: var(--pink);
+
+    transition:
+        all .8s ease;
+
+}
+
+.wish-message.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================================
+   FINAL
+========================================= */
+
+.final-section {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+    background: #c95776;
+
+    color: white;
+
+}
+
+.final-content {
+
+    max-width: 900px;
+
+}
+
+.final-section .eyebrow {
+
+    color: #ffe2e9;
+
+}
+
+.final-section h1 {
+
+    font-family:
+        "Cormorant Garamond",
+        serif;
+
+    font-size:
+        clamp(60px, 10vw, 130px);
+
+    line-height: .8;
+
+    font-weight: 500;
+
+}
+
+.final-section h1 span {
+
+    display: block;
+
+    font-style: italic;
+
+}
+
+.final-message {
+
+    max-width: 600px;
+
+    margin: 50px auto;
+
+    line-height: 1.8;
+
+    color: #ffe8ed;
+
+}
+
+.final-heart {
+
+    font-size: 60px;
+
+    animation:
+        heartbeat 1.5s infinite;
+
+}
+
+.final-footer {
+
+    margin-top: 40px;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color: #ffd7e0;
+
+}
+
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(60px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s cubic-bezier(
+            .16,
+            1,
+            .3,
+            1
+        );
+
+}
+
+.reveal.active {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .hero h1 {
+
+        font-size: 85px;
+
+    }
+
+    .hero-name {
+
+        font-size: 38px;
+
+    }
+
+    .letter-card {
+
+        padding: 30px 25px;
+
+    }
+
+    .letter-content p {
+
+        font-size: 18px;
+
+    }
+
+    .memory-card {
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        margin-bottom: 100px;
+
+    }
+
+    .memory-right {
+
+        direction: ltr;
+
+    }
+
+    .photo-placeholder {
+
+        height: 350px;
+
+    }
+
+    .memory-text h3 {
+
+        font-size: 40px;
+
+    }
+
+    .qualities-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .quality-card {
+
+        min-height: 250px;
+
+    }
+
+}
